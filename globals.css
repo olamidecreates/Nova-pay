@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mist text-ink font-body antialiased;
+}
+
+.dark body {
+  @apply bg-nova-950 text-white;
+}
+
+/* Ledger numerals: every money figure in the app uses this class for a
+   consistent tabular, financial-statement feel. */
+.ledger {
+  font-family: var(--font-plex-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 18, 48, 0.15);
+  border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+:focus-visible {
+  outline: 2px solid #3d5cff;
+  outline-offset: 2px;
+}
+
+.card-sheen-anim {
+  background-size: 200% 100%;
+  animation: shimmer 6s linear infinite;
+}
